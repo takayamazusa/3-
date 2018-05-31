@@ -14,6 +14,8 @@ void choise(int count) {
 	int a = 0;
 	int b = 0;
 
+	printf("%d\n", count);
+
 	printf("c‚ğ‘I‚ñ‚Å‚­‚¾‚³‚¢\n");
 	printf("ãF0\t^‚ñ’†F1\t‰ºF2\n");
 	scanf_s("%d\n", &a);
@@ -78,14 +80,13 @@ void output() {
 		}
 		printf("\n");
 	}
-	//return igo[a][b];
+	
 }
 
 
 
 int main()
 {
-	//int win = 0;
 	int i = 1; //¡‰½‰ñ–Ú‚©ƒJƒEƒ“ƒg‚·‚é•Ï”
 
 	output(); //ˆê”ÔÅ‰‚Ìó‘Ô‚ğo—Í
@@ -95,15 +96,15 @@ int main()
 		int win = 0;
 
 		/*æU*/
-		if (count = 1) {
+		if (count == 1) {
 			printf("%d‰ñ–Ú\n", i);
 			choise(count);
 			output();
 			
 			/*Ÿ”s”»’èFÅ’Z5‰ñ–Ú‚ÅŸ‚Ä‚é‚½‚ß(i >= 5)*/
 			if (i >= 5) {
-				win =judge();
-				if (win == 1) {
+				judge();
+				if (judge() == 1) {
 					printf("player 1‚ÌŸ‚¿!");
 					break;
 				}
@@ -118,8 +119,8 @@ int main()
 
 			/*Ÿ”s”»’èFÅ’Z6‰ñ–Ú‚ÅŸ‚Ä‚é‚½‚ß(i >= 6)*/
 			if (i >= 6) {
-				win = judge();
-				if (win == 1) {
+				judge();
+				if (judge() == 1) {
 					printf("player 2‚ÌŸ‚¿!");
 					break;
 				}
