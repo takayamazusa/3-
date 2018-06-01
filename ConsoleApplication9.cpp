@@ -18,9 +18,12 @@ void choise(int count) {
 		printf("c‚ğ‘I‚ñ‚Å‚­‚¾‚³‚¢\n");
 		printf("ãF0\t^‚ñ’†F1\t‰ºF2\n");
 		scanf_s("%d\n", &a);
+		printf("%d", a);
+
 		printf("‰¡‚ğ‘I‚ñ‚Å‚­‚¾‚³‚¢\n");
 		printf("¶F0\t^‚ñ’†F1\t‰EF2\n");
 		scanf_s("%d\n", &b);
+
 	} while (igo[a][b] != 0);
 
 	if (count == 1) {
@@ -36,38 +39,38 @@ void choise(int count) {
 /*Ÿ”s”»’è‚ğ‚·‚é*/
 int judge() {
 	/*‚½‚Ä*/
-	int win = 0;
+	int winner = 0;
 
 	if ((igo[0][0] == igo[0][1])&& (igo[0][1] == igo[0][2])) {
-		win = 1;
+		winner = igo[0][0];
 	}
 	else if ((igo[1][0] == igo[1][1])&&(igo[1][1] == igo[1][2])) {
-		win = 1;
+		winner = igo[1][0];
 	}
 	else if ((igo[2][0] == igo[2][1])&&(igo[2][1] == igo[2][2])) {
-		win = 1;
+		winner = igo[2][0];
 	}
 
 	/*‚æ‚±*/
 	else if ((igo[0][0] == igo[1][0])&&(igo[1][0] == igo[2][0])) {
-		win = 1;
+		winner = igo[0][0];
 	}
 	else if ((igo[0][1] == igo[1][1])&&(igo[1][1] == igo[2][1])) {
-		win = 1;
+		winner = igo[0][1];
 	}
 	else if ((igo[0][2] == igo[1][2])&&(igo[1][2] == igo[2][2])) {
-		win = 1;
+		winner = igo[0][2];
 	}
 
 	/*‚È‚È‚ß*/
 	else if ((igo[0][0] == igo[1][1])&&(igo[1][1] == igo[2][2])) {
-		win = 1;
+		winner = igo[0][0];
 	}
-	else if ((igo[2][0] == igo[1][1])&&(igo[1][1] == igo[0][2])) {
-		win = 1;
+	else if ((igo[2][0] == igo[1][1]) && (igo[1][1] == igo[0][2])) {
+		winner = igo[2][0];
 	}
 	
-	return win;
+	return winner;
 }
 
 /*Œé”Õ‚Ìó‹µ‚ğo—Í*/
@@ -93,37 +96,22 @@ int main()
 
 	for (i = 1; i <= 9; i++) {
 		int count = i % 2;
-		int win = 0;
 
-		/*æU*/
-		if (count == 1) {
-			printf("%d‰ñ–Ú\n", i);
-			choise(count);
-			output();
+		printf("%d‰ñ–Ú\n", i);
+		choise(count);
+		output();
 			
-			/*Ÿ”s”»’èFÅ’Z5‰ñ–Ú‚ÅŸ‚Ä‚é‚½‚ß(i >= 5)*/
-			if (i >= 5) {
-				judge();
-				if (judge() == 1) {
-					printf("player 1‚ÌŸ‚¿!");
-					break;
-				}
-			}
-		}
-
-		/*ŒãU*/
-		else {
-			printf("%d‰ñ–Ú\n", i);
-			choise(count);
-			output();
-
-			/*Ÿ”s”»’èFÅ’Z6‰ñ–Ú‚ÅŸ‚Ä‚é‚½‚ß(i >= 6)*/
-			if (i >= 6) {
-				judge();
-				if (judge() == 1) {
-					printf("player 2‚ÌŸ‚¿!");
-					break;
-				}
+		/*Ÿ”s”»’èFÅ’Z5‰ñ–Ú‚ÅŸ‚Ä‚é‚½‚ß(i >= 5)*/
+		if (i >= 5) {
+			int winner = judge();
+			
+			switch (winner) {
+			case1:printf("player%d‚ÌŸ‚¿",winner);
+				break;
+			case2:printf("player%d‚ÌŸ‚¿",winner);
+				break;
+			default:
+				break;
 			}
 		}
 	}
