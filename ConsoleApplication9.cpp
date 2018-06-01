@@ -14,24 +14,24 @@ void choise(int count) {
 	int a = 0;
 	int b = 0;
 
-	//printf("%d\n", count);
+	do {
+		printf("縦を選んでください\n");
+		printf("上：0\t真ん中：1\t下：2\n");
+		scanf_s("%d\n", &a);
+		printf("横を選んでください\n");
+		printf("左：0\t真ん中：1\t右：2\n");
+		scanf_s("%d\n", &b);
+	} while (igo[a][b] != 0);
 
-	printf("縦を選んでください\n");
-	printf("上：0\t真ん中：1\t下：2\n");
-	scanf_s("%d\n", &a);
-	printf("横を選んでください\n");
-	printf("左：0\t真ん中：1\t右：2\n");
-	scanf_s("%d\n", &b);
-
-	if ((count == 1)&&(igo[a][b] == 0)) {
+	if (count == 1) {
 		igo[a][b] = 1;
 	}
-	else if ((count == 0)&&(igo[a][b] == 0)) {
+	else {
 		igo[a][b] = 2;
 	}
-
 	
 }
+
 
 /*勝敗判定をする*/
 int judge() {
