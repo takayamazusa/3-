@@ -14,7 +14,7 @@ void choise(int count) {
 	int a = 0;
 	int b = 0;
 
-	printf("%d\n", count);
+	//printf("%d\n", count);
 
 	printf("縦を選んでください\n");
 	printf("上：0\t真ん中：1\t下：2\n");
@@ -23,10 +23,10 @@ void choise(int count) {
 	printf("左：0\t真ん中：1\t右：2\n");
 	scanf_s("%d\n", &b);
 
-	if (count == 1) {
+	if ((count == 1)&&(igo[a][b] == 0)) {
 		igo[a][b] = 1;
 	}
-	else {
+	else if ((count == 0)&&(igo[a][b] == 0)) {
 		igo[a][b] = 2;
 	}
 
@@ -66,7 +66,7 @@ int judge() {
 	else if ((igo[2][0] == igo[1][1])&&(igo[1][1] == igo[0][2])) {
 		win = 1;
 	}
-
+	
 	return win;
 }
 
