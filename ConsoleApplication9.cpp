@@ -17,12 +17,11 @@ void choise(int count) {
 	do {
 		printf("縦を選んでください\n");
 		printf("上：0\t真ん中：1\t下：2\n");
-		scanf_s("%d\n", &a);
-		printf("%d", a);
+		scanf_s("%d", &a);
 
 		printf("横を選んでください\n");
 		printf("左：0\t真ん中：1\t右：2\n");
-		scanf_s("%d\n", &b);
+		scanf_s("%d", &b);
 
 	} while (igo[a][b] != 0);
 
@@ -69,7 +68,7 @@ int judge() {
 	else if ((igo[2][0] == igo[1][1]) && (igo[1][1] == igo[0][2])) {
 		winner = igo[2][0];
 	}
-	
+	printf("%d", winner);
 	return winner;
 }
 
@@ -106,9 +105,11 @@ int main()
 			int winner = judge();
 			
 			switch (winner) {
-			case1:printf("player%dの勝ち",winner);
+			case 1:
+				printf("player%dの勝ち",winner);
 				break;
-			case2:printf("player%dの勝ち",winner);
+			case 2:
+				printf("player%dの勝ち",winner);
 				break;
 			default:
 				break;
